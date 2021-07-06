@@ -1,6 +1,6 @@
-## GenServer and Supervisor
+## GenServer и Supervisor
 
-## В этом руководстве я испоьзовал GenServer и Supervisor и создал простое приложение для чата.
+## В этом репозитории я испоьзовал GenServer и Supervisor и создал простое приложение для чата.
 
 ### Запуск приложения `iex -S mix` 
 
