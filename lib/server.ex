@@ -4,12 +4,12 @@ defmodule Chat.Server do
   #запуск с клиентской стороны 
 
   def start_link do
-    GenServer.start_link(__MODULE__, []) #здесь __MODULE__ означает defmodule Chat.Server
+    GenServer.start_link(__MODULE__, [], name: :chat_room) #здесь __MODULE__ означает defmodule Chat.Server
   end
 
   # messages = msgs
-  def get_msgs(pid) do
-    GenServer.call(pid, :get_msgs)
+  def get_msgs do
+    GenServer.call(:chat_room, :get_msgs)
   end
 
   def add_msg(msg) do
