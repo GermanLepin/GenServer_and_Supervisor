@@ -7,7 +7,7 @@ defmodule Chat.Supervisor do
 
   def init(_) do
     children = [
-      worker(Chat.Server, [])
+        worker(Chat.Server, [])
     ]
 
     supervise(children, strategy: :one_for_one)
