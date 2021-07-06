@@ -12,6 +12,10 @@ defmodule Chat.Server do
     GenServer.call(pid, :get_msgs)
   end
 
+  def add_msg(msg) do
+    GenServer.cast(:chat_room, {:add_msg, msg})
+  end
+
   #запуск со стороны сервера/ функция обратного вызова
 
   def init(msgs) do
@@ -22,5 +26,8 @@ defmodule Chat.Server do
     {:reply, msgs, msgs}
   end
 
+  def handle_cast({:add_msg, msg}, msgs) do
+    {:noreply, [msg | msgs]}
+  end
 
 end

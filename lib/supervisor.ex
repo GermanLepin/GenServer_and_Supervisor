@@ -1,26 +1,16 @@
-defmodule Chat.Server do
-  use GenServer
-
-  #запуск с клиентской стороны 
+defmodule Chat.Supervisor do
+  use Supervisor
 
   def start_link do
-    GenServer.start_link(__MODULE__, []) #здесь __MODULE__ означает defmodule Chat.Server
+    Supervisor.start_link(__MODULE__, [])
   end
 
-  # messages = msgs
-  def get_msgs(pid) do
-    GenServer.call(pid, :get_msgs)
+  def init(_) do
+    children = [
+      worker(Chat.Server, [])
+    ]
+
+    supervise(children, strategy: :one_for_one)
   end
-
-  #запуск со стороны сервера/ функция обратного вызова
-
-  def init(msgs) do
-    {:ok, msgs}
-  end
-
-  def handle_call(:get_msgs, _form, msgs) do
-    {:reply, msgs, msgs}
-  end
-
 
 end

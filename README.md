@@ -1,11 +1,8 @@
-# Elixir tutorial part 3
 # GenServer and Supervisor
 
-### In this tutorial, look at GenServer and Supervisor and we build a simple chat app.   
-## Run `iex -S mix` to run the app in the repl. 
+### В этом руководстве я испоьзовал GenServer и Supervisor и создал простое приложение для чата.   
+## Запуск приложения `iex -S mix` 
 
-### Check out the Youtube Tutorial for this [Go Program](https://youtu.be/3EjRvaCOl94). Here is our [Youtube Channel](https://www.youtube.com/channel/UCYqCZOwHbnPwyjawKfE21wg) Subscribe for more content.
+## Запуск сервера чата `iex(1)> Chat.Server.start_link` - этот запрос возвращает кортеж, состоящий из атома и идентификатора процесса 
 
-### Check out our blog at [tensor-programming.com](http://tensor-programming.com/).
-
-### Our [Twitter](https://twitter.com/TensorProgram) and our [facebook](https://www.facebook.com/Tensor-Programming-1197847143611799/).
+##Привязываем идентификатор процесса к PID `iex(2)> {:ok, pid}=Chat.Server.start_link`
